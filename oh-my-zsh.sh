@@ -63,7 +63,7 @@ if [ -z "$ZSH_COMPDUMP" ]; then
 fi
 
 # If completion insecurities exist, warn the user without enabling completions.
-if ! compaudit &>/dev/null; then
+if [ $USER != "root" ] && ! compaudit &>/dev/null; then
   # This function resides in the "lib/compfix.zsh" script sourced above.
   handle_completion_insecurities
 # Else, enable and cache completions to the desired file.
