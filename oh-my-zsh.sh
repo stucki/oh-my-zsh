@@ -69,7 +69,7 @@ if [ $USER != "root" ] && ! compaudit &>/dev/null; then
 fi
 
 # Enable and cache completions to the desired file
-compinit -d "${ZSH_COMPDUMP}"
+compinit -i -d "${ZSH_COMPDUMP}"
 
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
