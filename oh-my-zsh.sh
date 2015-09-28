@@ -62,14 +62,14 @@ if [ -z "$ZSH_COMPDUMP" ]; then
   ZSH_COMPDUMP="${ZDOTDIR:-${HOME}}/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}"
 fi
 
-# If completion insecurities exist, warn the user without enabling completions.
+# If completion insecurities exist, warn the user
 if [ $USER != "root" ] && ! compaudit &>/dev/null; then
   # This function resides in the "lib/compfix.zsh" script sourced above.
   handle_completion_insecurities
-# Else, enable and cache completions to the desired file.
-else
-  compinit -d "${ZSH_COMPDUMP}"
 fi
+
+# Enable and cache completions to the desired file
+compinit -d "${ZSH_COMPDUMP}"
 
 # Load all of the plugins that were defined in ~/.zshrc
 for plugin ($plugins); do
